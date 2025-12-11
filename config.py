@@ -26,7 +26,7 @@ OWNER_ID = int(os.environ.get("OWNER_ID", "7668133494"))
 
 #Port
 PORT = os.environ.get("PORT", "8065")
-DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://saara:saara@cluster0.tkng4az.mongodb.net/?appName=Cluster0")
+DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://obito:umaid2008@cluster0.engyc.mongodb.net/?retryWrites=true&w=majority")
 DB_NAME = os.environ.get("DATABASE_NAME", "sara")
 
 IS_VERIFY = os.environ.get("IS_VERIFY", "True")
@@ -116,6 +116,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
+
 
 
 
