@@ -4,8 +4,7 @@
 import time
 import pymongo, os
 import motor
-from config import DB_URI, DB_NAME
-from bot import Bot
+from config import DB_URI, DB_NAME
 import logging
 from datetime import datetime, timedelta
 
