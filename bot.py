@@ -13,6 +13,7 @@ import aria2p
 from config import *
 from dotenv import load_dotenv
 from database.db_premium import remove_expired_users
+from database.database import db
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import logging
 
@@ -70,6 +71,12 @@ class Bot(Client):
     async def start(self):
         await super().start()
         scheduler.start()
+        # Schedule daily reset of free usage at midnight IST
+        try:
+            scheduler.add_job(db.reset_all_free_usage, 'cron', hour=0, minute=0)
+        except Exception as e:
+            self.LOGGER(__name__).warning(f"Failed to schedule daily free reset: {e}")
+
         usr_bot_me = await self.get_me()
         self.uptime = get_indian_time()
 
